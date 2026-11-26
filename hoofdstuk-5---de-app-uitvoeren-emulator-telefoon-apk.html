@@ -1,0 +1,896 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Een client-servervoorbeeld [Kotlin Android] / [NestJS]">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/nl-kotlin-android-nestjs-oct-2026/hoofdstuk-5---de-app-uitvoeren-emulator-telefoon-apk.html">
+      
+      
+        <link rel="prev" href="hoofdstuk-4---de-kotlin-client-voor-de-applicatie-rdvmedecins.html">
+      
+      
+        <link rel="next" href="hoofdstuk-6---conclusie-en-vervolgstappen.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>6. Hoofdstuk 5 - De app uitvoeren: emulator, telefoon, APK - Een client-servervoorbeeld [Kotlin Android] / [NestJS]</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Een client-servervoorbeeld [Kotlin Android] / [NestJS]";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-hoofdstuk-5-de-app-uitvoeren-emulator-telefoon-apk" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Een client-servervoorbeeld [Kotlin Android] / [NestJS]" class="md-header__button md-logo" aria-label="Een client-servervoorbeeld [Kotlin Android] / [NestJS]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Een client-servervoorbeeld [Kotlin Android] / [NestJS]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Hoofdstuk 5 - De app uitvoeren: emulator, telefoon, APK
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Overschakelen naar donkere modus"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Overschakelen naar donkere modus" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Overschakelen naar lichte modus"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Overschakelen naar lichte modus" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/nl-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Een client-servervoorbeeld [Kotlin Android] / [NestJS]" class="md-nav__button md-logo" aria-label="Een client-servervoorbeeld [Kotlin Android] / [NestJS]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Een client-servervoorbeeld [Kotlin Android] / [NestJS]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/nl-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welkom
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="inleiding.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inleiding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hoofdstuk-1---de-werkomgeving-inrichten.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Hoofdstuk 1 - De werkomgeving inrichten
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hoofdstuk-2---de-server-nestjs-installeren.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Hoofdstuk 2 - De server [NestJS] installeren
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hoofdstuk-3---inleiding-tot-android-en-jetpack-compose.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Hoofdstuk 3 - Inleiding tot Android en Jetpack Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hoofdstuk-4---de-kotlin-client-voor-de-applicatie-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Hoofdstuk 4 - De Kotlin-client voor de applicatie RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Hoofdstuk 5 - De app uitvoeren: emulator, telefoon, APK
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="hoofdstuk-5---de-app-uitvoeren-emulator-telefoon-apk.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Hoofdstuk 5 - De app uitvoeren: emulator, telefoon, APK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-een-doelplatform-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Eén doelplatform: Android
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-emulator-als-doelplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Emulator als doelplatform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2. Emulator als doelplatform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-de-netwerkvalkuil-localhost-verwijst-niet-meer-naar-de-ontwikkel-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.1. De netwerkvalkuil: localhost verwijst niet meer naar de ontwikkel-pc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-doelplatform-telefoon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3. Doelplatform: telefoon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-twee-beperkingen-die-specifiek-voor-mobiele-apparaten-gelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4. Twee beperkingen die specifiek voor mobiele apparaten gelden
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4. Twee beperkingen die specifiek voor mobiele apparaten gelden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-onversleuteld-http-verkeer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.1. Onversleuteld HTTP-verkeer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-toestemming-voor-netwerktoegang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.2. Toestemming voor netwerktoegang
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-schermrotatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5. Schermrotatie
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-een-smal-scherm-de-valkuil-van-de-indeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6. Een smal scherm: de valkuil van de indeling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-een-apk-genereren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7. Een APK genereren
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-en-wat-te-denken-van-ios-desktop-en-webapps-kotlin-multiplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8. En wat te denken van iOS, desktop- en webapps? Kotlin Multiplatform
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-overzichtstabel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9. Overzichtstabel
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hoofdstuk-6---conclusie-en-vervolgstappen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Hoofdstuk 6 - Conclusie en vervolgstappen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6-hoofdstuk-5-de-app-uitvoeren-emulator-telefoon-apk">6. <span style="color: #2e74b5">Hoofdstuk 5 - De app uitvoeren: emulator, telefoon, APK</span></h1>
+<h2 id="61-een-doelplatform-android">6.1. <span style="color: #2e74b5">Eén doelplatform: Android</span></h2>
+<p>Hoofdstuk 5 van de Flutter-cursus liet zien hoe één broncode compileert naar drie families van doelplatforms: mobiel, desktop en web. Dat is hier niet het geval: de client in dit document is een Android-app – en alleen Android. In plaats daarvan gebruikt hij rechtstreeks de hulpmiddelen en bibliotheken van het platform (<em>[Gradle]</em>, <em>[Android Studio]</em>, <em>[ViewModel]</em>, <strong><em>[SharedPreferences]</em></strong>...), zonder abstractielaag. In de laatste paragraaf van dit hoofdstuk wordt uitgelegd wat er nodig zou zijn om ook iOS, de desktop en het web als doel te hebben.</p>
+<p>De commando’s in dit hoofdstuk gebruiken het hulpprogramma <strong><em>[adb]</em></strong> en de Gradle-wrapper. Als op Windows de mappen <strong><em>[platform-tools]</em></strong> en <strong><em>[emulator]</em></strong> van de SDK niet in [PATH] staan, vervangt u <strong><em>[adb]</em></strong> door <strong><em>[&amp; &quot;$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe&quot;]</em></strong> (zie Hoofdstuk 1).</p>
+<h2 id="62-emulator-als-doelplatform">6.2. <span style="color: #2e74b5">Emulator als doelplatform</span></h2>
+<p>Dit is het doelplatform dat in heel Hoofdstuk 4 is gebruikt. Vanuit Android Studio: selecteer de emulator in de lijst met apparaten en kies vervolgens [Run]. Vanaf de opdrachtregel, in de projectmap:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>adb devices                                        # de emulator moet verschijnen
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>.\gradlew.bat installDebug                          # bouwt de applicatie en installeert deze
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>adb shell am start -n fr.rdvmedecins.client/.MainActivity   # start de applicatie
+</code></pre></div></td></tr></table></div>
+<h3 id="621-de-netwerkvalkuil-localhost-verwijst-niet-meer-naar-de-ontwikkel-pc">6.2.1. <span style="color: #1f4d78">De netwerkvalkuil: <code>localhost</code> verwijst niet meer naar de ontwikkel-pc</span></h3>
+<p>Dit is DÉ belangrijke bijzonderheid bij mobiele ontwikkeling, los van Kotlin of Compose: <strong><em>[localhost]</em></strong> (of <strong><em>[127.0.0.1]</em></strong>) verwijst in het veld „Server URL” naar de machine waarop de code draait. De emulator is echter een VIRTUELE machine, los van de ontwikkel-pc waarop de [NestJS]-server draait, ook al lijken beide „op dezelfde computer te staan”. Er zijn twee oplossingen:</p>
+<ul>
+  <li>het speciale adres <i><b>[http://10.0.2.2:8080]</b></i>: specifiek voor de officiële Android-emulator, wordt het omgeleid naar de <i><b>[localhost]</b></i> van de hostmachine. Dit is de standaardwaarde van het veld „Server URL” (zie <i><b>[SettingsService.kt]</b></i>);
+  </li>
+  <li>het commando <i><b>[adb reverse tcp:8080 tcp:8080]</b></i>, gevolgd door de URL [http://localhost:8080]. <i><b>[adb reverse] </b></i>maakt een tunnel: elke verbinding van het apparaat naar de EIGEN poort 8080 wordt door <i><b>[adb] </b></i>doorgestuurd naar poort 8080 van de computer. De tunnel verdwijnt wanneer de emulator stopt (of wanneer de <i><b>[adb]</b></i>-server opnieuw start): u moet het commando dan opnieuw uitvoeren.
+  </li>
+</ul>
+
+<p>De eerste oplossing is de eenvoudigste. Op de computer waarop dit document is geschreven werkte ze echter niet: de verbinding met <strong><em>[10.0.2.2:8080]</em></strong> mislukte na een time-out van 10 seconden, terwijl de server normaal antwoordde op <strong><em>[localhost]</em></strong>. Dit soort probleem hangt af van de netwerkconfiguratie van de pc (firewall, VPN, virtualisatiesoftware): <strong><em>[adb reverse]</em></strong> omzeilt dit probleem, omdat het verkeer dan via <strong><em>[adb]</em></strong> loopt in plaats van via het virtuele netwerk van de emulator. De melding die de app toont („Incorrect login or password.”) zegt weinig; de exacte oorzaak is te vinden in het Android-logboek, dankzij de aanroepen <strong><em>van [Log.w(...)]</em></strong> door de client (het tabblad [Logcat] in Android Studio, gefilterd op <strong><em>[RdvMedecins]</em></strong>, of het commando <strong><em>[adb logcat -s RdvMedecins]</em></strong>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>W RdvMedecins: login failed
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>W RdvMedecins: java.net.SocketTimeoutException: failed to connect to /10.0.2.2 (port 8080)
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>from /10.0.2.16 (port 56580) after 10000ms
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>W RdvMedecins:   at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>...
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>W RdvMedecins:   at fr.rdvmedecins.client.core.services.AuthService$logIn$result$1.invokeSuspend(AuthService.kt:114)
+</code></pre></div></td></tr></table></div>
+<p>Het commando [adb reverse] en de URL [http://localhost:8080] (opgeslagen door [SettingsService]) losten het probleem op: dit is de configuratie die voor alle schermafbeeldingen in Hoofdstuk 4 is gebruikt.</p>
+<h2 id="63-doelplatform-telefoon">6.3. <span style="color: #2e74b5">Doelplatform: telefoon</span></h2>
+<p>De telefoon die in Hoofdstuk 1 is ingericht (ontwikkelaarsopties, USB-foutopsporing) verschijnt in <strong><em>[adb devices]</em></strong> en in de apparatenlijst van Android Studio: hij werkt precies als de emulator ([Run] of <strong><em>[gradlew installDebug]</em></strong>). Alleen de URL van de server verandert:</p>
+<ul>
+  <li>telefoon die via een USB-kabel is aangesloten: het commando <i><b>[adb reverse tcp:8080 tcp:8080] </b></i>werkt ook met een echte telefoon, en de URL [http://localhost:8080]<i><b> </b></i>bereikt dan via de kabel de server op de pc. Dit is de eenvoudigste oplossing;
+  </li>
+  <li>Telefoon in hetzelfde wifinetwerk als de pc: gebruik het LOKALE IP-adres van de pc in dat netwerk (bijvoorbeeld <i><b>[http://192.168.1.48:8080]</b></i>; het commando <i><b>[ipconfig]</b></i> toont het in Windows), nooit <i><b>[localhost] </b></i>of <i><b>[10.0.2.2]</b></i>, want in dit geval verwijzen beide naar de telefoon zelf. De firewall op de pc moet dan inkomende verbindingen op poort 8080 toestaan (Windows vraagt u dit te doen wanneer u Node.js voor het eerst start).
+  </li>
+</ul>
+
+<p>De <em>[NestJS]</em>-server luistert op alle netwerkinterfaces van de pc (<strong><em>[0.0.0.0]</em></strong>): aan de serverkant zijn geen wijzigingen nodig.</p>
+<h2 id="64-twee-beperkingen-die-specifiek-voor-mobiele-apparaten-gelden">6.4. <span style="color: #2e74b5">Twee beperkingen die specifiek voor mobiele apparaten gelden</span></h2>
+<h3 id="641-onversleuteld-http-verkeer">6.4.1. <span style="color: #1f4d78">Onversleuteld HTTP-verkeer</span></h3>
+<p>Vanaf Android 9 (API 28) mag een app standaard niet meer communiceren via HTTP in „plaintext” (<strong><em>[http://]</em></strong>, onversleuteld): alleen <strong><em>[https://]</em></strong> is toegestaan. Omdat de server voor deze cursus op gewoon HTTP luistert, declareert het manifest van de client de uitzondering <strong><em>[android:usesCleartextTraffic=&quot;true&quot;]</em></strong> (zie Hoofdstuk 4). Zonder deze uitzondering mislukt elk verzoek met de exception <strong><em>[CLEARTEXT communication to 10.0.2.2 not permitted by network security policy]</em></strong>.</p>
+<p>Deze toestemming geldt voor ALLE servers. Een meer fijnmazige configuratie is mogelijk met een bestand <strong><em>[res/xml/network_security_config.xml]</em></strong> dat gewone HTTP alleen voor bepaalde hostnamen toestaat:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nt">&lt;network-security-config&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;domain-config</span><span class="w"> </span><span class="na">cleartextTrafficPermitted=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">        </span><span class="nt">&lt;domain</span><span class="w"> </span><span class="na">includeSubdomains=</span><span class="s">"false"</span><span class="nt">&gt;</span>10.0.2.2<span class="nt">&lt;/domain&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="nt">&lt;domain</span><span class="w"> </span><span class="na">includeSubdomains=</span><span class="s">"false"</span><span class="nt">&gt;</span>localhost<span class="nt">&lt;/domain&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="nt">&lt;/domain-config&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="nt">&lt;/network-security-config&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Het bestand wordt in het manifest gedeclareerd met het attribuut <strong><em>[android:networkSecurityConfig=&quot;@xml/network_security_config&quot;]</em></strong> van de tag <strong><em>[&lt;application&gt;]</em></strong>. Dit document gebruikt het niet: het IP-adres van een pc in een wifinetwerk is niet vooraf bekend. In beide gevallen gelden deze instellingen alleen voor ontwikkeling: in productie zou de server beschikbaar zijn via <strong><em>[https://]</em></strong> (bijvoorbeeld achter een „reverse proxy” zoals Nginx), waardoor elke uitzondering overbodig zou zijn.</p>
+<h3 id="642-toestemming-voor-netwerktoegang">6.4.2. <span style="color: #1f4d78">Toestemming voor netwerktoegang</span></h3>
+<p>Zonder de regel <strong><em>[&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;]</em></strong> in het manifest mislukt het eerste verzoek en wordt een <strong><em>[SocketException: socket failed: EPERM (Operation not permitted)]</em></strong>-exception gegooid (of <strong><em>een [SecurityException: Permission denied (missing INTERNET permission?)]-exception</em></strong> wanneer de URL een hostnaam bevat). Dit wordt vaak over het hoofd gezien: het projectsjabloon van Android Studio bevat deze regel niet.</p>
+<h2 id="65-schermrotatie">6.5. <span style="color: #2e74b5">Schermrotatie</span></h2>
+<p>Als u de telefoon draait (of de emulator, met de rotatieknoppen in de zijbalk), wordt de activity VERNIETIGD en daarna opnieuw AANGEMAAKT (zie Hoofdstuk 3). De client vangt dit op dankzij drie keuzes uit Hoofdstuk 4:</p>
+<ul>
+  <li>de services worden gebouwd door <i><b>[RdvMedecinsApplication]</b></i>, die niet opnieuw wordt aangemaakt;
+  </li>
+  <li>de toestand van het scherm (artsen, patiënten, agenda, het tijdslot dat op dat moment wordt geboekt) wordt bewaard in <i><b>[AppViewModel]</b></i>, dat door Android wordt behouden;
+  </li>
+  <li>kleine toestanden van de interface (de inloggegevens die worden ingevoerd, de geselecteerde arts en dag, de in het dialoogvenster gekozen patiënt) worden bewaard in <i><b>[rememberSaveable]</b></i>.
+  </li>
+</ul>
+
+<p>De volgende schermafbeeldingen zijn gemaakt met het boekingsdialoogvenster open: eerst in landschapsstand, daarna weer in staande stand. Het dialoogvenster, de agenda en de geselecteerde arts en dag zijn er nog steeds:</p>
+<p><img src="images/10000000000004B00000021C42A7CD86.png" width="491" height="221" style="width:13cm;height:5.851cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004B00000021C42A7CD86.png" /></p>
+<p><img src="images/100000000000021C000004B075B984CE.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B075B984CE.png" /></p>
+<p>In landschapsstand is het scherm meer dan 600 dp breed: de titelbalk toont de volledige titel en de naam van de gebruiker, en <strong><em>[DoctorDayPicker]</em></strong> rangschikt de drie elementen op één regel:</p>
+<p><img src="images/10000000000004B00000021C4664ADD5.png" width="491" height="221" style="width:13cm;height:5.851cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004B00000021C4664ADD5.png" /></p>
+<p>Om de waarde van deze keuzes te beoordelen, kunnen we het tegenovergestelde proberen: vervang in <strong><em>[App.kt]</em></strong> <strong><em>[val vm = viewModel { AppViewModel(auth, api) }]</em></strong> door <strong><em>[val vm = remember { AppViewModel(auth, api) }]</em></strong>. Na een rotatie verdwijnt de agenda en moet de zoekopdracht opnieuw worden uitgevoerd: <strong><em>[remember]</em></strong> overleeft het opnieuw aanmaken van de activity niet.</p>
+<h2 id="66-een-smal-scherm-de-valkuil-van-de-indeling">6.6. <span style="color: #2e74b5">Een smal scherm: de valkuil van de indeling</span></h2>
+<p>Een telefoon in staande stand is slechts ongeveer 400 dp breed. De eerste versie van <strong><em>[ScheduleView.kt]</em></strong> struikelde, net als die van de Flutter-client, over deze breedte. Elke rij van de agenda verdeelde de beschikbare breedte over de drie kolommen met vaste gewichten: 30% voor het tijdstip, 45% voor de status en 25% voor de knop (<strong><em>[Modifier.weight(0.25f)]</em></strong>). Op de telefoon, in de Franse interface, was 25% van de rij niet genoeg voor het label „Réserver”, dat werd afgekapt tot „Rése”:</p>
+<p><img src="images/100000000000021C000004B0000F4C9B.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B0000F4C9B.png" /></p>
+<p><img src="images/100000000000021C000004B0FF3464ED.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B0FF3464ED.png" /></p>
+<p>De correctie (schermafbeelding rechts; zie <strong><em>[ScheduleView.kt]</em></strong> in Hoofdstuk 4): de knop heeft geen gewicht meer en neemt de breedte van zijn tekst in; het tijdstip heeft een vaste breedte; de status neemt de resterende breedte in (<strong><em>[Modifier.weight(1f)]</em></strong>). Hieruit volgen twee regels, dezelfde als voor de Flutter-client:</p>
+<ul>
+  <li>Ga nooit uit van een bepaalde breedte: laat een element ofwel de grootte van zijn inhoud aannemen, ofwel controleer de werkelijk beschikbare breedte (<i><b>[BoxWithConstraints]</b></i>, <i><b>[LocalConfiguration.current.screenWidthDp]</b></i>) om een indeling te kiezen;
+  </li>
+  <li>Test al vroeg op een smal scherm, en in beide talen: de Engelse labels („Book”, „Cancel”) zijn korter dan de Franse, en een bug kan in slechts één van de twee talen optreden.
+  </li>
+</ul>
+
+<h2 id="67-een-apk-genereren">6.7. <span style="color: #2e74b5">Een APK genereren</span></h2>
+<p><strong><em>[gradlew assembleDebug]</em></strong> (Hoofdstuk 1) genereert <strong><em>[app/build/outputs/apk/debug/app-debug.apk]</em></strong>, een „debug”-app: ze is ondertekend met een ontwikkelsleutel die automatisch door Android Studio is gegenereerd en kan op een emulator of een telefoon worden geïnstalleerd (<strong><em>[adb install app-debug.apk]</em></strong>), maar kan niet in de Play Store worden gepubliceerd. Voor echte distributie:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>.\gradlew.bat assembleRelease    # APK voor productie: app/build/outputs/apk/release/
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>.\gradlew.bat bundleRelease      # Android App Bundle (.aab), het door de Play Store vereiste formaat
+</code></pre></div></td></tr></table></div>
+<p>Een productieversie moet worden ondertekend met een persoonlijke sleutel, die eenmalig wordt aangemaakt en veilig wordt bewaard: Android Studio biedt hiervoor het menu [Build / Generate Signed App Bundle or APK...]. De Play Store vereist ook een pictogram, een privacybeleid... en een server op <strong><em>[https://]</em></strong>.</p>
+<h2 id="68-en-wat-te-denken-van-ios-desktop-en-webapps-kotlin-multiplatform">6.8. <span style="color: #2e74b5">En wat te denken van iOS, desktop- en webapps? Kotlin Multiplatform</span></h2>
+<p>De Flutter-client in de cursus genereerde mobiele apps, desktopapps en webapps vanuit één codebase. Het equivalent bestaat in het Kotlin-ecosysteem: <em>[Kotlin Multiplatform]</em> (KMP) maakt het mogelijk Kotlin-code te delen tussen Android, iOS, desktop (JVM) en het web, terwijl <em>[Compose Multiplatform]</em>, van JetBrains, Jetpack Compose uitbreidt naar diezelfde doelplatforms. Het overzetten van de client uit dit document zou vooral bestaan uit het vervangen van Android-specifieke bibliotheken door platformonafhankelijke equivalenten:</p>
+<ul>
+  <li><i>[OkHttp] </i>→ <i>[Ktor Client]</i>, de platformonafhankelijke HTTP-client van JetBrains;
+  </li>
+  <li><i><b>[SharedPreferences] </b></i>→ een platformonafhankelijke bibliotheek voor sleutel-waardeopslag (bijvoorbeeld <i>[DataStore]</i>, dat nu platformonafhankelijk is);
+  </li>
+  <li>de Android-map <i><b>[assets/] </b></i>→ resources van Compose Multiplatform;
+  </li>
+  <li><i><b>[android.util.Log]</b></i>, <i><b>[Handler] </b></i>→ hun platformonafhankelijke equivalenten (of coroutines op <i><b>[Dispatchers.Main]</b></i>);
+  </li>
+  <li>de klasse Application en de activity blijven bestaan, maar alleen voor het Android-doelplatform: elk doelplatform heeft zijn eigen toegangspunt.
+  </li>
+</ul>
+
+<p>@Composable-functies, de <strong><em>[@Serializable]</em></strong>-klassen, coroutines en zelfs het ViewModel (beschikbaar voor multiplatform) zouden vrijwel ongewijzigd worden behouden. Dit overzetten valt buiten het bestek van dit document.</p>
+<h2 id="69-overzichtstabel">6.9. <span style="color: #2e74b5">Overzichtstabel</span></h2>
+<ul>
+  <li>Android-emulator - [Run] of <i><b>[gradlew installDebug]</b></i> - Server URL: <i><b>[http://10.0.2.2:8080]</b></i>, of <i><b>[adb reverse tcp:8080 tcp:8080] </b></i>gevolgd door <i><b>[http://localhost:8080]</b></i>;
+  </li>
+  <li>USB-telefoon - [Run] of <i><b>[gradlew installDebug]</b></i> - URL: <i><b>[adb reverse tcp:8080 tcp:8080], </b></i>daarna <i><b>[http://localhost:8080]</b></i>;
+  </li>
+  <li>Telefoon via wifi - [Run] of <i><b>[gradlew installDebug]</b></i> - URL: lokaal IP-adres van de pc, poort 8080 open in de firewall;
+  </li>
+  <li>in alle gevallen: de toestemming <i><b>[INTERNET]</b></i> en de toelating van HTTP in platte tekst in het manifest;
+  </li>
+  <li>Distributie: <i><b>[gradlew assembleRelease] </b></i>(APK) of <i><b>[bundleRelease] </b></i>(Play Store), met een persoonlijke ondertekeningssleutel.
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Deze cursus, geschreven door de AI <strong>Claude</strong> van Anthropic in opdracht van <strong>Serge Tahé</strong>, wordt aan het publiek ter beschikking gesteld onder de voorwaarden van de licentie
+        <em>Creative Commons Naamsvermelding – Niet-commercieel –
+        Gelijk delen 3.0 Unported</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

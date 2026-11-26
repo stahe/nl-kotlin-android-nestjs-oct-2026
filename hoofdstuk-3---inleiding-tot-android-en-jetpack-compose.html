@@ -1,0 +1,928 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Een client-servervoorbeeld [Kotlin Android] / [NestJS]">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/nl-kotlin-android-nestjs-oct-2026/hoofdstuk-3---inleiding-tot-android-en-jetpack-compose.html">
+      
+      
+        <link rel="prev" href="hoofdstuk-2---de-server-nestjs-installeren.html">
+      
+      
+        <link rel="next" href="hoofdstuk-4---de-kotlin-client-voor-de-applicatie-rdvmedecins.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>4. Hoofdstuk 3 - Inleiding tot Android en Jetpack Compose - Een client-servervoorbeeld [Kotlin Android] / [NestJS]</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Een client-servervoorbeeld [Kotlin Android] / [NestJS]";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-hoofdstuk-3-inleiding-tot-android-en-jetpack-compose" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Een client-servervoorbeeld [Kotlin Android] / [NestJS]" class="md-header__button md-logo" aria-label="Een client-servervoorbeeld [Kotlin Android] / [NestJS]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Een client-servervoorbeeld [Kotlin Android] / [NestJS]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Hoofdstuk 3 - Inleiding tot Android en Jetpack Compose
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Overschakelen naar donkere modus"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Overschakelen naar donkere modus" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Overschakelen naar lichte modus"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Overschakelen naar lichte modus" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/nl-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Een client-servervoorbeeld [Kotlin Android] / [NestJS]" class="md-nav__button md-logo" aria-label="Een client-servervoorbeeld [Kotlin Android] / [NestJS]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Een client-servervoorbeeld [Kotlin Android] / [NestJS]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/nl-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welkom
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="inleiding.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inleiding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hoofdstuk-1---de-werkomgeving-inrichten.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Hoofdstuk 1 - De werkomgeving inrichten
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hoofdstuk-2---de-server-nestjs-installeren.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Hoofdstuk 2 - De server [NestJS] installeren
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Hoofdstuk 3 - Inleiding tot Android en Jetpack Compose
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="hoofdstuk-3---inleiding-tot-android-en-jetpack-compose.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Hoofdstuk 3 - Inleiding tot Android en Jetpack Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-bronnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. Bronnen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-wat-is-een-android-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Wat is een Android-app?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-het-ontwikkelmodel-van-compose-alles-is-een-functie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. Het ontwikkelmodel van Compose: alles is een functie
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-toestand-en-hercompositie-geen-statefulwidget-en-geen-setstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4. Toestand en hercompositie: geen StatefulWidget en geen setState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-toestand-delen-compositionlocal-het-equivalent-van-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5. Toestand delen: CompositionLocal, het equivalent van provider
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-geen-templatetaal-voorwaarden-en-lijsten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6. Geen templatetaal: voorwaarden en lijsten
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-coroutines-asyncawait-in-kotlin-stijl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7. Coroutines: async/await in Kotlin-stijl
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48-de-levenscyclus-schermrotatie-en-viewmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8. De levenscyclus: schermrotatie en ViewModel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49-een-eenvoudig-eerste-voorbeeld" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9. Een eenvoudig eerste voorbeeld
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#410-samenvatting-van-flutter-naar-jetpack-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10. Samenvatting: van Flutter naar Jetpack Compose
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hoofdstuk-4---de-kotlin-client-voor-de-applicatie-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Hoofdstuk 4 - De Kotlin-client voor de applicatie RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hoofdstuk-5---de-app-uitvoeren-emulator-telefoon-apk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Hoofdstuk 5 - De app uitvoeren: emulator, telefoon, APK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hoofdstuk-6---conclusie-en-vervolgstappen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Hoofdstuk 6 - Conclusie en vervolgstappen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="4-hoofdstuk-3-inleiding-tot-android-en-jetpack-compose">4. <span style="color: #2e74b5">Hoofdstuk 3 - Inleiding tot Android en Jetpack Compose</span></h1>
+<h2 id="41-bronnen">4.1. <span style="color: #2e74b5">Bronnen</span></h2>
+<p>Officiële documentatie: https://developer.android.com - met name de pagina&#x27;s „Jetpack Compose” (https://developer.android.com/compose), „Thinking in Compose”, „State and Jetpack Compose”, „Introduction to Activities” en „ViewModel Overview”. Kotlin Coroutines: https://kotlinlang.org/docs/coroutines-overview.html</p>
+<h2 id="42-wat-is-een-android-app">4.2. <span style="color: #2e74b5">Wat is een Android-app?</span></h2>
+<p>Een Android-app is een .apk-bestand (of .aab voor de Play Store) dat de gecompileerde code, de resources (pictogrammen, tekst, afbeeldingen) en een manifest (<em>[AndroidManifest.xml]</em>) bevat - de „identiteitskaart” voor het systeem: de identificatie van de app, de rechten die de app aanvraagt (netwerktoegang enzovoort) en de lijst met schermen.</p>
+<p>Deze schermen heten „activities” (<em>[Activity]</em>). Een activity wordt niet door het programma zelf aangemaakt: het SYSTEEM maakt haar aan wanneer de gebruiker op het pictogram van de app tikt en roept daarna gedurende de hele levenscyclus de methoden ervan aan: <strong><em>[onCreate(...)]</em></strong> bij het aanmaken, <strong><em>[onPause()]</em></strong> wanneer ze naar de achtergrond gaat, <strong><em>[onDestroy()]</em></strong> bij het vernietigen... Een Android-app heeft dus geen functie <strong><em>[main()]</em></strong> - dit is het eerste verschil met <strong><em>[void main()]</em></strong> in de Flutter-client. Deze levenscyclus heeft een belangrijk gevolg, dat hieronder wordt toegelicht: een schermrotatie VERNIETIGT de activity en MAAKT ZE DAARNA OPNIEUW AAN.</p>
+<p>De Kotlin-code wordt gecompileerd naar Java-bytecode, daarna geconverteerd naar het DEX-formaat en uitgevoerd door de virtuele machine van Android, <em>[ART]</em> (Android Runtime), die de code bij de installatie en tijdens de uitvoering op zijn beurt compileert naar machinecode. Er is geen JavaScript- of <em>[WebView]</em>-engine: het is een NATIVE app, net als de apps die vooraf op de telefoon zijn geïnstalleerd. Net als Flutter tekent Jetpack Compose zijn eigen componenten (knoppen, invoervelden enzovoort) in plaats van de oude UI-componenten van Android (de <em>[View]</em>) te gebruiken - maar daarvoor gebruikt Compose de eigen UI-bibliotheken van Android, in plaats van een renderengine binnen de app zoals Flutter.</p>
+<p>In tegenstelling tot Flutter richt deze client zich UITSLUITEND op Android: dezelfde code levert geen iOS-, desktop- of webapp op. Hoofdstuk 5 legt uit wat daarvoor nodig zou zijn (Kotlin Multiplatform en Compose Multiplatform).</p>
+<h2 id="43-het-ontwikkelmodel-van-compose-alles-is-een-functie">4.3. <span style="color: #2e74b5">Het ontwikkelmodel van Compose: alles is een functie</span></h2>
+<p>Met Jetpack Compose wordt een UI beschreven door Kotlin-functies met de annotatie <strong><em>@Composable</em></strong>. Een @Composable-functie geeft niets terug: ze EMITTEERT de interface door andere @Composable-functies aan te roepen - <strong><em>[Text(...)]</em></strong>, <strong><em>[Button(...)]</em></strong>, <strong><em>[Column(...)]</em></strong>... De complete interface is de boom van deze geneste aanroepen.</p>
+<p>Dit is hetzelfde declaratieve model als in Flutter („de interface is een functie van de toestand”), met één formeel verschil: waar Flutter elk element beschrijft met een KLASSE (een [Widget]) waarvan de methode <strong><em>[build(...)]</em></strong> een boom van objecten teruggeeft, gebruikt Compose uitsluitend functies. De compilatieplug-in van Compose transformeert deze functies zodat ze selectief opnieuw kunnen worden uitgevoerd wanneer de toestand die ze lezen verandert: dit heet „hercompositie”.</p>
+<p>Instellingen voor uiterlijk en lay-out (marges, afmetingen, uitlijning, achtergrondkleur, klikken enzovoort) zijn geen elementen van de boom, zoals de widgets <strong><em>[Padding]</em></strong> of <strong><em>[Center]</em></strong> van Flutter, maar „modifiers”, die aan elkaar worden geschakeld en als parameters worden doorgegeven: <strong><em>[Modifier.padding(16.dp).fillMaxWidth()]</em></strong>. De eenheid <strong><em>[dp]</em></strong> (density-independent pixel) is gelijk aan de logische pixels van Flutter: 1 dp komt overeen met één pixel op een scherm met een resolutie van 160 punten per inch, ongeacht de werkelijke dichtheid van het scherm.</p>
+<h2 id="44-toestand-en-hercompositie-geen-statefulwidget-en-geen-setstate">4.4. <span style="color: #2e74b5">Toestand en hercompositie: geen StatefulWidget en geen setState</span></h2>
+<p>Flutter maakt al bij de declaratie van de klasse onderscheid tussen een <em>[StatelessWidget]</em> en een <em>[StatefulWidget]</em> met de bijbehorende klasse <em>[State]</em> en vereist dat u <strong><em>[setState(() { ... })]</em></strong> aanroept om een toestandswijziging weer te geven. Compose doet niets van dit alles:</p>
+<ul>
+  <li>een lokale variabele wordt in de functie zelf gedeclareerd: <i><b>[var clicks by remember { mutableStateOf(0) }]</b></i>;
+  </li>
+  <li><i><b>[mutableStateOf(...)] </b></i>maakt een OBSERVEERBARE TOESTAND aan: Compose registreert automatisch elke @Composable-functie die deze toestand LEEST en voert deze functies - en alleen deze functies - opnieuw uit („hercomponeert” ze) wanneer de waarde verandert. Na een wijziging hoeft u niets aan te roepen: <i><b>[clicks++] </b></i>volstaat. Zo werkt <i><b>[ref(...)]/[reactive(...)]</b></i> aan de kant van Vue.js, en niet zoals <i><b>[setState(...)]</b></i> werkt;
+  </li>
+  <li><i><b>[remember { ... }] </b></i>bewaart een waarde van de ene uitvoering van de functie tot de volgende. Zonder deze functie zou de toestand bij elke aanroep opnieuw worden aangemaakt - en op nul worden teruggezet;
+  </li>
+  <li><i><b>[rememberSaveable { ... }] </b></i>doet hetzelfde en bewaart de waarde BOVENDIEN wanneer de activity wordt vernietigd en daarna opnieuw wordt aangemaakt (schermrotatie; zie hieronder);
+  </li>
+  <li>Met het sleutelwoord <i><b>[by] </b></i>(property delegation; zie de <a href="https://stahe.github.io/nl-kotlin-oct-2026/"><u><span style="color: #0563c1">cursus Kotlin</span></u></a>) kunt u <i><b>[clicks] schrijven in plaats van [clicks.value]</b></i>.
+  </li>
+</ul>
+
+<p>Hetzelfde mechanisme geldt voor een gedeelde toestand: een gewone klasse waarvan de eigenschappen worden gedeclareerd als <strong><em>[by mutableStateOf(...)]</em></strong> wordt automatisch geobserveerd door alle functies die deze eigenschappen lezen. Zo worden de services van de client geschreven (<em>[SettingsService]</em>, <em>[AuthService]</em>, <em>[TranslationsService]</em>; zie Hoofdstuk 4): waar de Flutter-versie <em>[ChangeNotifier]</em> uitbreidde en na elke wijziging handmatig <strong><em>[notifyListeners()]</em></strong> aanriep, hoeft hier niets te worden gemeld.</p>
+<h2 id="45-toestand-delen-compositionlocal-het-equivalent-van-provider">4.5. <span style="color: #2e74b5">Toestand delen: CompositionLocal, het equivalent van <code>provider</code></span></h2>
+<p>Om een service beschikbaar te maken voor een hele boom van @Composable-functies zonder die van aanroep tot aanroep als parameter door te geven, biedt Compose <em>[CompositionLocal]</em>: u declareert een „sleutel” (<strong><em>[val LocalAuth =</em></strong> <strong><em>staticCompositionLocalOf&lt;AuthService&gt; { ... }]</em></strong>), kent bovenaan de boom een waarde toe (<strong><em>[CompositionLocalProvider(LocalAuth provides auth) { ... }]</em></strong>) en elke onderliggende functie kan die LEZEN met <strong><em>[LocalAuth.current]</em></strong>. Dit is precies de rol van het pakket <em>[provider]</em> in de Flutter-versie (<strong><em>[MultiProvider]</em></strong> / <strong><em>[context.read&lt;...&gt;()]</em></strong>), van <strong><em>[provide]/[inject]</em></strong> aan de kant van Vue.js of van een React-<strong><em>[Context]</em></strong>. Compose heeft geen equivalent nodig van <strong><em>[context.watch&lt;...&gt;()]</em></strong>: het abonneren op wijzigingen wordt door de observeerbare toestanden zelf geregeld.</p>
+<h2 id="46-geen-templatetaal-voorwaarden-en-lijsten">4.6. <span style="color: #2e74b5">Geen templatetaal: voorwaarden en lijsten</span></h2>
+<p>Net als in Flutter worden voorwaardelijke weergave en lijsten geschreven met standaard taalconstructies: een Kotlin-expressie <strong><em>[if]</em></strong> voor een voorwaarde, een lus <strong><em>[forEach]</em></strong> voor een lijst. Omdat een @Composable-functie gewoon een functie is als alle andere, <strong><em>[if (auth.isLoggedIn) { ... }] EMITTEERT de inhoud ervan wel of niet</em></strong> - er is geen equivalent van het opbouwen van lijsten met widgets (<strong><em>[children: [...]]</em></strong>) of van de syntaxis „collection if” van Dart.</p>
+<h2 id="47-coroutines-asyncawait-in-kotlin-stijl">4.7. <span style="color: #2e74b5">Coroutines: async/await in Kotlin-stijl</span></h2>
+<p>Een Android-app heeft slechts één thread die verantwoordelijk is voor het tekenen van de UI en het reageren op de gebruiker: de hoofdthread. Die mag NOOIT wachten; Android verbiedt vanuit deze thread zelfs elke netwerktoegang (exception <strong><em>[NetworkOnMainThreadException]</em></strong>). Aanroepen van de server moeten daarom „op de achtergrond” plaatsvinden. Kotlin biedt hiervoor coroutines:</p>
+<ul>
+  <li>een <i><b>[suspend]</b></i>-functie kan worden onderbroken zonder de thread te blokkeren die haar uitvoert - het equivalent van een functie met <i><b>[async] </b></i>in Dart of TypeScript. Het aanroepen van een <i><b>[suspend]</b></i>-functie komt neer op wachten tot ze klaar is: er is geen sleutelwoord <i><b>[await]</b></i>; het wachten is impliciet;
+  </li>
+  <li><i><b>[withContext(Dispatchers.IO) { ... }] </b></i>voert een blok uit op een thread die voor I/O is gereserveerd en keert daarna met het resultaat terug naar de oorspronkelijke thread. Hierdoor kunt u een „blokkerende” netwerkbibliotheek (<i>[OkHttp]</i>) gebruiken zonder ooit de interface te blokkeren;
+  </li>
+  <li>een coroutine wordt gestart met <i><b>[launch { ... }] </b></i>BINNEN een scope (<i>[CoroutineScope]</i>) die aan een levenscyclus is gekoppeld: <i><b>[viewModelScope] </b></i>(de coroutines van een ViewModel, die worden geannuleerd wanneer het wordt vernietigd) of <i><b>[rememberCoroutineScope()] </b></i>(die van een @Composable-functie, geannuleerd wanneer ze van het scherm verdwijnt). Er bestaat niet langer het risico, zoals in Flutter, dat de toestand van een al vernietigd scherm wordt gewijzigd (de test <i><b>[if (mounted)]</b></i>): de coroutine wordt samen met het scherm geannuleerd.
+  </li>
+</ul>
+
+<h2 id="48-de-levenscyclus-schermrotatie-en-viewmodel">4.8. <span style="color: #2e74b5">De levenscyclus: schermrotatie en ViewModel</span></h2>
+<p><strong><em>Standaard</em></strong> VERNIETIGT Android de activity wanneer de gebruiker de telefoon draait (of de systeemtaal wijzigt, of overschakelt naar de donkere modus) en maakt een nieuwe aan, aangepast aan de nieuwe configuratie. Alles wat in de oude activity was opgeslagen - en in de toestanden van haar @Composable-functies - gaat verloren. Flutter heeft dit probleem niet: een schermrotatie wijzigt alleen de grootte van het scherm.</p>
+<p>Android biedt twee oplossingen, die beide door de client worden gebruikt:</p>
+<ul>
+  <li><i><b>[rememberSaveable { ... }] </b></i>voor kleine UI-toestanden (tekst die wordt ingevoerd, geselecteerde arts enzovoort): Android bewaart die vóór de vernietiging en herstelt ze in de nieuwe activity;
+  </li>
+  <li>een <i>[ViewModel] </i>voor de toestand en de logica van een scherm (van de server geladen lijsten, weergegeven agenda enzovoort): dit is een object dat Android BEHOUDT wanneer de activity opnieuw wordt aangemaakt en aan de nieuwe activity doorgeeft. Het wordt pas vernietigd wanneer het scherm definitief wordt verlaten. De client in dit document plaatst alle toestand die de Flutter-versie in de klasse <i><b>[_AppRootState]</b></i> bewaarde in een ViewModel (<i>[AppViewModel]</i>).
+  </li>
+</ul>
+
+<p>Objecten die even lang moeten leven als de applicatie (services) worden niet in de activity of in een ViewModel aangemaakt, maar in de klasse <em>[Application]</em> van de applicatie, die slechts één keer wordt aangemaakt wanneer het proces start.</p>
+<h2 id="49-een-eenvoudig-eerste-voorbeeld">4.9. <span style="color: #2e74b5">Een eenvoudig eerste voorbeeld</span></h2>
+<p>Hier is een kleine Compose-applicatie: wat tekst, een knop die klikken telt en een bericht dat pas na de derde klik verschijnt. Om het uit te proberen vervangt u eenvoudig de inhoud van het bestand <strong><em>[MainActivity.kt]</em></strong> in een project dat is gemaakt met de sjabloon [Empty Activity] (zie Hoofdstuk 1), waarbij u de regel <strong><em>[package]</em></strong> aanpast.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">package</span><span class="w"> </span><span class="nn">fr.rdvmedecins.example</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">import</span><span class="w"> </span><span class="nn">android.os.Bundle</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.activity.ComponentActivity</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.activity.compose.setContent</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.Column</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.padding</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material3.Button</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material3.MaterialTheme</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material3.Text</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.Composable</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.getValue</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.mutableIntStateOf</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.remember</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.setValue</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.Modifier</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.unit.dp</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MainActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ComponentActivity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">        </span><span class="n">setContent</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">            </span><span class="n">MaterialTheme</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">                </span><span class="n">Counter</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"RdvMedecins"</span><span class="p">)</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="p">}</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="nd">@Composable</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">Counter</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">clicks</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">remember</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">mutableIntStateOf</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">    </span><span class="n">Column</span><span class="p">(</span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="m">32.</span><span class="n">dp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">"Hello, </span><span class="si">$</span><span class="n">name</span><span class="s">!"</span><span class="p">)</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">        </span><span class="n">Button</span><span class="p">(</span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">clicks</span><span class="o">++</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="s">"Clicked </span><span class="si">$</span><span class="n">clicks</span><span class="s"> times"</span><span class="p">)</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">clicks</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="s">"Well done!"</span><span class="p">)</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Laten we deze code toelichten:</p>
+<ul>
+  <li>regel 19: <i><b>[class MainActivity : ComponentActivity()]</b></i> - de activity, het scherm dat door het systeem wordt gestart. <i>[ComponentActivity] </i>is de basisklasse die voor Compose is bedoeld;
+  </li>
+  <li>regel 20: <i><b>[onCreate(...)]</b></i> - wordt door Android aangeroepen wanneer de activity wordt aangemaakt. Dit is het startpunt van de code van de app en vervangt <i><b>[main()]</b></i> van Flutter;
+  </li>
+  <li>regel 22: <i><b>[setContent { ... }]</b></i> - vervangt de inhoud van het scherm door de interface die in het blok is beschreven: het equivalent van <i><b>[runApp(...)] </b></i>in Flutter;
+  </li>
+  <li>regel 23: <i><b>[MaterialTheme { ... }]</b></i> - levert het Material 3-thema (kleuren, typografie, vormen) aan alles wat binnen het blok wordt aangeroepen - de rol van <i><b>[MaterialApp]</b></i> in Flutter, zonder de navigatie;
+  </li>
+  <li>regels 30-31: <i><b>[@Composable fun Counter(name: String)]</b></i> - een `@Composable`-functie met één parameter. Volgens afspraak begint de naam ervan met een hoofdletter, net als de naam van een klasse: ze vertegenwoordigt een element van de interface;
+  </li>
+  <li>regel 32: <i><b>[var clicks by remember { mutableIntStateOf(0) }]</b></i> - een lokale toestand: <i><b>[mutableIntStateOf] </b></i>is de variant van <i><b>[mutableStateOf] </b></i>die is geoptimaliseerd voor een geheel getal;
+  </li>
+  <li>regel 33: <i><b>[Column(modifier = Modifier.padding(32.dp)) { ... }]</b></i> - rangschikt de onderliggende elementen onder elkaar, met een marge van 32 dp. <i><b>[Row] </b></i>zou ze naast elkaar rangschikken;
+  </li>
+  <li>regel 35: <i><b>[Button(onClick = { clicks++ })]</b></i> - de klikhandler is een eenvoudige lambda. <i><b>[clicks++] wijzigt de toestand: Compose hercomponeert onmiddellijk [Counter], die deze toestand LEEST,</b></i> en de tekst van de knop wordt bijgewerkt;
+  </li>
+  <li>regels 38-40: een standaard Kotlin-<i><b>[if]</b></i> - de tekst „Well done!” wordt pas vanaf de derde klik geëmitteerd en dus weergegeven.
+  </li>
+</ul>
+
+<h2 id="410-samenvatting-van-flutter-naar-jetpack-compose">4.10. <span style="color: #2e74b5">Samenvatting: van Flutter naar Jetpack Compose</span></h2>
+<ul>
+  <li><i><b>[void main()] </b></i>+ <i><b>[runApp(...)] </b></i>→ activity (<i>[ComponentActivity]</i>) + <i><b>[setContent { ... }]</b></i>
+  </li>
+  <li><i>[StatelessWidget]/[StatefulWidget] </i>(klassen) → functies <i><b>[@Composable]</b></i>
+  </li>
+  <li>velden van <i><b>[State&lt;T&gt;] </b></i>+ <i><b>[setState(...)] </b></i>→ <i><b>[remember { mutableStateOf(...) }] </b></i>(automatische hercompositie)
+  </li>
+  <li><i>[ChangeNotifier] </i>+ <i><b>[notifyListeners()] </b></i>→ klasse met eigenschappen <i><b>[by mutableStateOf(...)] </b></i>(niets te melden)
+  </li>
+  <li>pakket <i>[provider] </i>(<i><b>[MultiProvider]</b></i>, <i><b>[context.read]/[watch]</b></i>) → <i>[CompositionLocal] </i>(<i><b>[CompositionLocalProvider]</b></i>, <i><b>[LocalXxx.current]</b></i>)
+  </li>
+  <li>constructorparameters van widgets (invoer), als parameters doorgegeven functies (uitvoer) → parameters van @Composable-functies, lambda&#x27;s
+  </li>
+  <li><i><b>[build(BuildContext)] </b></i>→ de body van de @Composable-functie
+  </li>
+  <li>widgets <i><b>[Padding]</b></i>, <i><b>[Center]</b></i>, <i><b>[SizedBox]</b></i>... → modifiers (<i><b>[Modifier.padding(...)]</b></i>...)
+  </li>
+  <li><i><b>[Future&lt;T&gt;] </b></i>+ <i><b>[async]/[await] </b></i>→ <i><b>[suspend]</b></i>-functies + coroutines
+  </li>
+  <li>pakket <i>[http] </i>→ bibliotheek <i>[OkHttp]</i>
+  </li>
+  <li>zelfgeschreven constructors <i><b>[fromJson(...)]</b></i> → klassen met <i><b>[@Serializable] </b></i>(<i>[kotlinx.serialization]</i>)
+  </li>
+  <li>pakket <i>[shared_preferences] </i>→ de <i><b>[SharedPreferences] </b></i>van Android (de API waaraan het Flutter-pakket zijn naam ontleent)
+  </li>
+  <li><i><b>[showDialog(...)] </b></i>→ een functie <i><b>[AlertDialog(...)]</b></i> die wordt getoond zolang een toestand dat vereist
+  </li>
+  <li><i><b>[LayoutBuilder] </b></i>/ <i><b>[MediaQuery] </b></i>→ <i><b>[BoxWithConstraints] </b></i>/ <i><b>[LocalConfiguration]</b></i>
+  </li>
+  <li><i><b>[pubspec.yaml] </b></i>+ <i><b>[flutter pub get] </b></i>→ <i><b>[build.gradle.kts] </b></i>+ <i><b>[libs.versions.toml] </b></i>+ Gradle
+  </li>
+  <li>Geen equivalent in Flutter: <i>[ViewModel] </i>en <i><b>[rememberSaveable]</b></i>, nodig doordat de activity opnieuw wordt aangemaakt wanneer het scherm roteert
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Deze cursus, geschreven door de AI <strong>Claude</strong> van Anthropic in opdracht van <strong>Serge Tahé</strong>, wordt aan het publiek ter beschikking gesteld onder de voorwaarden van de licentie
+        <em>Creative Commons Naamsvermelding – Niet-commercieel –
+        Gelijk delen 3.0 Unported</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
